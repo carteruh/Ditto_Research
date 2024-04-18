@@ -1,1 +1,0 @@
-# Ditto_Research
