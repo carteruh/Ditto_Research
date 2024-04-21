@@ -11,7 +11,7 @@ repos:
       - id: debug-statements
       - id: detect-private-key
 
-  # # python code formatting
+  # # python code formatting Uncomment after push
   # - repo: https://github.com/psf/black
   #   rev: 20.8b1
   #   hooks:
