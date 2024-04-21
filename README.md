@@ -1,9 +1,9 @@
 # Follow Up Study on Ditto: Building Digital Twins of Articulated Objects from Interaction
 
-Based on: [Zhenyu Jiang](http://zhenyujiang.me), [Cheng-Chun Hsu](https://chengchunhsu.github.io/), [Yuke Zhu](https://www.cs.utexas.edu/~yukez/)
+Based by: [Zhenyu Jiang](http://zhenyujiang.me), [Cheng-Chun Hsu](https://chengchunhsu.github.io/), [Yuke Zhu](https://www.cs.utexas.edu/~yukez/)
 
 
-[Project](https://ut-austin-rpl.github.io/Ditto/) | [arxiv](https://arxiv.org/abs/2202.08227)
+Original Ditto Project Links and Paper: [Project](https://ut-austin-rpl.github.io/Ditto/) | [arxiv](https://arxiv.org/abs/2202.08227)
 
 ![intro](assets/pipeline.png)
 
