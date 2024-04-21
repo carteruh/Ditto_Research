@@ -11,16 +11,16 @@ repos:
       - id: debug-statements
       - id: detect-private-key
 
-  # python code formatting
-  - repo: https://github.com/psf/black
-    rev: 20.8b1
-    hooks:
-      - id: black
-        language_version: python3.8
+  # # python code formatting
+  # - repo: https://github.com/psf/black
+  #   rev: 20.8b1
+  #   hooks:
+  #     - id: black
+  #       language_version: python3.8
 
   # python import sorting
   - repo: https://github.com/PyCQA/isort
-    rev: 5.8.0
+    rev: 5.11.5 # Original is 5.8.0
     hooks:
       - id: isort
         args: ["--profile", "black", "--filter-files"]
