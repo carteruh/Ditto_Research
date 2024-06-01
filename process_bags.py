@@ -11,8 +11,8 @@ rospy.init_node('image_saver', anonymous=True)
 bridge = CvBridge()
 
 # Make sure to create the folders for saving images
-color_images_dir = "/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-27-40/color_images"
-depth_images_dir = "/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-27-40/depth_images"
+color_images_dir = "/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/color_images"
+depth_images_dir = "/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/depth_images"
 os.makedirs(color_images_dir, exist_ok=True)
 os.makedirs(depth_images_dir, exist_ok=True)
 

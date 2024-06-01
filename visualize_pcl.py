@@ -27,7 +27,7 @@ def read_depth(RGB_path, depth_path):
         o3d.geometry.Image(RGB_img),
         o3d.geometry.Image(depth_img),
         depth_scale=1000,  # Conversion scale if original depth is in meters
-        depth_trunc=1.5,  # Maximum truncation in meters
+        depth_trunc=0.7,  # Maximum truncation in meters
         # convert_rgb_to_intensity=True
     )
     print(rgbd_image)
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     height=480,
     fx=635.647,
     fy=635.647,
-    cx=321.300,
+    cx=320.300,
     cy=241.436,
 )
 
@@ -83,16 +83,16 @@ if __name__ == '__main__':
 # )
 
 
-    rgbd_laptop = read_depth_laptop('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-27-40/depth_images/189_depth.png')
-    rgbd = read_depth('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-27-40/color_images/189_bw.png', '/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-27-40/depth_images/189_depth.png')
+    rgbd_laptop = read_depth_laptop('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/depth_images/177_depth.png')
+    rgbd = read_depth('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/color_images/177_bw.png', '/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/depth_images/177_depth.png')
 
 
     pcd = o3d.geometry.PointCloud.create_from_rgbd_image(rgbd, pinhole_camera_intrinsic)
 
     print(pcd)
 
-    img = Image.open('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-27-40/color_images/189_bw.png')
-    depth = Image.open('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-27-40/depth_images/189_depth.png')
+    img = Image.open('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/color_images/177_bw.png')
+    depth = Image.open('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/depth_images/177_depth.png')
 
     # flip the orientation, so it looks upright, not upside-down
     pcd.transform([[1,0,0,0],[0,-1,0,0],[0,0,-1,0],[0,0,0,1]])
