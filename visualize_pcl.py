@@ -27,8 +27,7 @@ def read_depth(RGB_path, depth_path):
         o3d.geometry.Image(RGB_img),
         o3d.geometry.Image(depth_img),
         depth_scale=1000,  # Conversion scale if original depth is in meters
-        depth_trunc=0.7,  # Maximum truncation in meters
-        # convert_rgb_to_intensity=True
+        depth_trunc=.0005  # Maximum truncation in meters
     )
     print(rgbd_image)
     return rgbd_image
@@ -52,12 +51,12 @@ def read_depth_laptop(depth_path):
 
 if __name__ == '__main__':
     pinhole_camera_intrinsic = o3d.camera.PinholeCameraIntrinsic(
-        width=848,
-        height=480,
-        fx=429.85,
-        fy=429.85,
-        cx=426.88,
-        cy=239.45
+        width=800,
+        height=800,
+        fx=1111.11,
+        fy=1111.11,
+        cx=400,
+        cy=400
     )
 
     # pinhole_camera_intrinsic = o3d.camera.PinholeCameraIntrinsic(
@@ -83,16 +82,20 @@ if __name__ == '__main__':
 # )
 
 
-    rgbd_laptop = read_depth_laptop('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/depth_images/177_depth.png')
-    rgbd = read_depth('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/color_images/177_bw.png', '/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/depth_images/177_depth.png')
+    # img_path = '/media/qil/DATA/Carter_Articulated_Objects/Ditto/data/sapien_example/Knife/101217/start/test/0000.png'
+    # depth_path = '/media/qil/DATA/Carter_Articulated_Objects/Ditto/data/sapien_example/Knife/101217/start/test/depth_images/0000_depth.png'
 
+    img_path = '/media/qil/DATA/Carter_Articulated_Objects/Ditto/data/sapien_example/Knife/101217/start/test/0000.png'
+    depth_path = '/media/qil/DATA/Carter_Articulated_Objects/Ditto/data/sapien_example/Knife/101217/start/test/depth_images/0000_depth.png'
+
+    rgbd = read_depth(img_path, depth_path)
 
     pcd = o3d.geometry.PointCloud.create_from_rgbd_image(rgbd, pinhole_camera_intrinsic)
 
     print(pcd)
 
-    img = Image.open('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/color_images/177_bw.png')
-    depth = Image.open('/media/qil/DATA/DITTO_Carter/Ditto/data/ROS_Data/2024-03-25-16-26-56/depth_images/177_depth.png')
+    img = Image.open(img_path)
+    depth = Image.open(depth_path)
 
     # flip the orientation, so it looks upright, not upside-down
     pcd.transform([[1,0,0,0],[0,-1,0,0],[0,0,-1,0],[0,0,0,1]])
